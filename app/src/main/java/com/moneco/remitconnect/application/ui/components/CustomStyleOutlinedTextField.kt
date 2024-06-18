@@ -47,18 +47,13 @@ fun CustomStyleOutlinedTextField(
         readOnly = readOnly,
         shape = MaterialTheme.shapes.large,
         textStyle = LocalTextStyle.current.copy(
-            color = when (isSystemInDarkTheme()) {
-                true -> Color.LightGray
-                else -> Color.Black
-            },
+            color = Color.Black,
             fontSize = 14.sp
         ),
         colors = TextFieldDefaults.colors(
-            cursorColor = if (isSystemInDarkTheme()) Color.White else Color.Black,
-            unfocusedContainerColor = if (isSystemInDarkTheme())
-                MaterialTheme.colorScheme.surfaceVariant else LightGray40,
-            focusedContainerColor = if (isSystemInDarkTheme())
-                MaterialTheme.colorScheme.surfaceVariant else LightGray40,
+            cursorColor =  Color.Black,
+            unfocusedContainerColor = LightGray40,
+            focusedContainerColor =  LightGray40,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent
         )

@@ -63,7 +63,20 @@ fun WalletsScreen(state : WalletState, actions : WalletsActions) {
                         }
                     }
                     is WalletState.Success -> {
-                        WalletsContent(wallets = state.items, actions)
+                        if (state.items.isEmpty()) {
+                            Box(modifier = Modifier.fillMaxSize()
+                                .padding(24.dp),
+                                contentAlignment = Alignment.Center){
+                                Text(
+                                    text = stringResource(R.string.empty_wallets),
+                                    fontWeight = FontWeight.Thin,
+                                    textAlign = TextAlign.Center,
+                                    fontSize = 16.sp
+                                )
+                            }
+                        }else {
+                            WalletsContent(wallets = state.items, actions)
+                        }
                     }
                 }
             }

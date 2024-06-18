@@ -61,35 +61,29 @@ fun WalletsContent(wallets : List<Wallets>, actions : WalletsActions) {
         Box(
             modifier = Modifier
                 .constrainAs(footer) {
-                    bottom.linkTo(parent.bottom)
+                    bottom.linkTo(parent.bottom, margin = -24.dp)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .shadow(
-                    4.dp, RoundedCornerShape(
-                        topStart = 8.dp, topEnd = 8.dp,
-                        bottomEnd = 0.dp, bottomStart = 0.dp
+                    16.dp, RoundedCornerShape(
+                        topStart = 16.dp, topEnd = 16.dp,
                     )
                 )
                 .background(
-                    if (isSystemInDarkTheme())
-                        MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp) else Color.White,
+                    Color.White,
                     RoundedCornerShape(
-                        topStart = 8.dp, topEnd = 8.dp,
-                        bottomEnd = 0.dp, bottomStart = 0.dp
+                        topStart = 16.dp, topEnd = 16.dp,
+
                     )
                 ),
         ) {
-            Column(Modifier.padding(16.dp)){
-                Spacer(modifier = Modifier.height(16.dp))
-                ValidateButton(title = stringResource(id = R.string.continue_txt),
-                    isEnable = selectedIndex != -1){
-                     actions.onValidate()
-                }
+            ValidateButton(title = stringResource(id = R.string.continue_txt),
+                isEnable = selectedIndex != -1){
+                actions.onValidate()
             }
-
         }
     }
 }

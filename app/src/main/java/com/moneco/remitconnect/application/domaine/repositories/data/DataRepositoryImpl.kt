@@ -9,14 +9,26 @@ import javax.inject.Inject
 class DataRepositoryImpl @Inject
 constructor(private val remoteApiService: RemoteApiService) : DataRepository {
     override suspend fun getWallets(): List<Wallets> {
-        return remoteApiService.fetchWallets()
+        return try {
+           return remoteApiService.fetchWallets()
+        }catch(ex : Exception){
+            emptyList()
+        }
     }
 
     override suspend fun getAccounts(): List<Account> {
-        return remoteApiService.fetchAccounts()
+        return try {
+            remoteApiService.fetchAccounts()
+        }catch(ex : Exception){
+            emptyList()
+        }
     }
 
     override suspend fun getCountries(): List<Country> {
-        return remoteApiService.fetchCountries()
+        return try {
+            remoteApiService.fetchCountries()
+        }catch (ex : Exception){
+            emptyList()
+        }
     }
 }

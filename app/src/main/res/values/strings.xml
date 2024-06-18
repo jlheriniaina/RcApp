@@ -47,13 +47,14 @@
     <string name="Settings">Settings</string>
     <string name="Tontines">Tontines</string>
     <string name="hint_name">Enter your first name</string>
-    <string name="hint_lastname">Enter your lastname</string>
+    <string name="hint_lastname">Enter your last name</string>
     <string name="hint_phone">Enter your phone number</string>
     <string name="hint_country">Select your country</string>
     <string name="empty_wallets">No wallets available</string>
     <string name="transaction_to">To</string>
     <string name="transaction_from">Via</string>
     <string name="transaction_amount">You\'re sending</string>
-
+    <string name="not_contact_found">No contact available</string>
+    <string name="no_country_found">No country available</string>
 
 </resources>

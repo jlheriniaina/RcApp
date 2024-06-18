@@ -1,10 +1,9 @@
-package com.moneco.remitconnect.application.ui.screens.home.ccomponents
+package com.moneco.remitconnect.application.ui.screens.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,8 +33,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.moneco.remitconnect.R
 import com.moneco.remitconnect.application.domaine.entites.Transaction
-import com.moneco.remitconnect.application.ui.components.ChildLayout
-import com.moneco.remitconnect.application.ui.components.LoadItemAfterSafeCast
 import com.moneco.remitconnect.application.ui.screens.home.state.TransactionState
 import com.moneco.remitconnect.application.ui.theme.BabyBlue
 import com.moneco.remitconnect.application.ui.theme.CeruleanBlue

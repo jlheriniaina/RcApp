@@ -33,7 +33,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -45,6 +47,7 @@ import com.moneco.remitconnect.application.domaine.entites.Country
 import com.moneco.remitconnect.application.domaine.entites.defaultCountry
 import com.moneco.remitconnect.application.ui.theme.DuskGray
 import com.moneco.remitconnect.application.ui.theme.LightGray
+import com.moneco.remitconnect.helpers.toast
 
 
 @Composable
@@ -56,6 +59,8 @@ fun CountrySelectorContent(data : List<Country>,
         else -> defaultCountry
     }) }
     var isOpenDialog by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val message = stringResource(R.string.no_country_found)
 
     Surface(
         shape = MaterialTheme.shapes.small,
@@ -75,7 +80,13 @@ fun CountrySelectorContent(data : List<Country>,
                 .fillMaxWidth()
                 .height(56.dp)
                 .padding(start = 16.dp, end = 12.dp)
-                .clickable { isOpenDialog = true }
+                .clickable {
+                    if (data.isNotEmpty()){
+                        isOpenDialog = true
+                   }else {
+                        context.toast(message)
+                    }
+                }
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically

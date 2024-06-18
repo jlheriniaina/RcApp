@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,6 +33,7 @@ fun ValidateButton(title : String, isEnable : Boolean, onPressedCallback: () -> 
     Button(
         modifier = Modifier
             .wrapContentHeight()
+            .padding(24.dp)
             .fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
         colors = ButtonDefaults.buttonColors(
