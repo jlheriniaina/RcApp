@@ -1,6 +1,8 @@
 package com.moneco.remitconnect.application.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -28,8 +30,9 @@ fun SearchBar(
 ) {
     TextField(
         modifier = Modifier
+            .padding(24.dp)
             .fillMaxWidth()
-            .size(327.dp, 50.dp),
+            .height(50.dp),
         value = query,
         onValueChange = {
             onQueryChange(it)

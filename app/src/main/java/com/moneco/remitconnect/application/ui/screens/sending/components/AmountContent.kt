@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.sp
 import com.moneco.remitconnect.R
 import com.moneco.remitconnect.application.ui.theme.DuskGray
 import com.moneco.remitconnect.application.ui.theme.midnightBlue
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 @SuppressLint("DefaultLocale")
 @Composable
@@ -26,13 +27,16 @@ fun AmountContent(amount : Double) {
         Text(
             text = stringResource(R.string.recipient_gets),
             fontSize = 14.sp,
-            color = DuskGray
+            color = DuskGray,
+            fontWeight = FontWeight.Medium,
+            fontFamily = outfitSansFamily,
         )
         Text(
             text = "$${String.format("%.2f", amount.times(655.94))} XOF",
             fontSize = 18.sp,
             color = midnightBlue,
-            fontWeight = FontWeight.W600,
+            fontWeight = FontWeight.Medium,
+            fontFamily = outfitSansFamily,
         )
     }
 }

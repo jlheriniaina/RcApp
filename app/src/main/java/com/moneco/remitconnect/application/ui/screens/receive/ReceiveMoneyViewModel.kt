@@ -92,20 +92,11 @@ constructor(private val appNavigator: AppNavigator,
             .catch {
                 _receiveState.value = ReceiveTransactionState.Empty
             }.collect { data ->
-                val result = data.ifEmpty {
-                    listOf(
-                        Transaction(id = 1,
-                            country = "Mada",
-                            phoneNumber = "0346792869", firstName = "Jean Luc",
-                            lastName = "Heriniaina",
-                            userId = 1L, amount = 200.0,
-                            wallet = "Wave"),
-                    )
-                }
-                if(result.isEmpty()) {
+
+                if(data.isEmpty()) {
                     _receiveState.value = ReceiveTransactionState.Empty
                 } else {
-                    _receiveState.value = ReceiveTransactionState.Success(result.toMutableList())
+                    _receiveState.value = ReceiveTransactionState.Success(data.toMutableList())
                 }
             }
     }

@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -32,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -53,6 +55,7 @@ import com.moneco.remitconnect.application.ui.theme.CeruleanBlue
 import com.moneco.remitconnect.application.ui.theme.DuskGray
 import com.moneco.remitconnect.application.ui.theme.LightGray
 import com.moneco.remitconnect.application.ui.theme.midnightBlue
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 import com.moneco.remitconnect.helpers.currency
 
 @Composable
@@ -80,14 +83,17 @@ fun SendingScreen(user: User?, transaction: Transaction, actions : SendingAction
                     Text(
                         text = stringResource(R.string.send_money),
                         fontSize = 24.sp,
-                        fontWeight = FontWeight(600),
+                        fontWeight = FontWeight.SemiBold,
+                        fontFamily = outfitSansFamily,
+                        color = Color(0xFF00122C),
                         lineHeight = 36.sp,
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     Text(
                         text = "How much are you sending?",
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.W500,
+                        fontWeight = FontWeight.SemiBold,
+                        fontFamily = outfitSansFamily,
                         lineHeight = 36.sp,
                     )
                     Spacer(modifier = Modifier.height(8.dp))
@@ -148,7 +154,8 @@ fun SendingScreen(user: User?, transaction: Transaction, actions : SendingAction
                                 Text(
                                     text = "EUR",
                                     fontSize = 18.sp,
-                                    fontWeight = FontWeight.W600,
+                                    fontWeight = FontWeight.Medium,
+                                    fontFamily = outfitSansFamily,
                                     color = DuskGray
                                 )
                             }
@@ -171,6 +178,8 @@ fun SendingScreen(user: User?, transaction: Transaction, actions : SendingAction
                                     Text(
                                         text = "Your current balance is ${(user?.balance ?: 0.0).currency()}",
                                         fontSize = 12.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        fontFamily = outfitSansFamily,
                                         color = if (!isValid)
                                             MaterialTheme.colorScheme.primary
                                         else midnightBlue
@@ -187,26 +196,31 @@ fun SendingScreen(user: User?, transaction: Transaction, actions : SendingAction
                         Text(
                             text = stringResource(R.string.yearly_free_remittances),
                             fontSize = 16.sp,
-                            fontWeight = FontWeight.W500,
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = outfitSansFamily,
                             lineHeight = 36.sp,
                         )
                         Text(
                             text = stringResource(R.string.remittances_are_free_with_moneco),
                             fontSize = 14.sp,
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = outfitSansFamily,
                             color = DuskGray
                         )
                         Text(
                             modifier = Modifier.clickable {},
                             text = stringResource(R.string.check_number_of_free_remittance_remaining),
                             fontSize = 14.sp,
-                            fontWeight = FontWeight(600),
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = outfitSansFamily,
                             color = CeruleanBlue
                         )
                         Spacer(modifier = Modifier.height(28.dp))
                         Text(
                             text = stringResource(R.string.fees_breakdown),
                             fontSize = 16.sp,
-                            fontWeight = FontWeight.W500,
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = outfitSansFamily,
                             lineHeight = 36.sp,
                         )
                         Column(
@@ -218,17 +232,38 @@ fun SendingScreen(user: User?, transaction: Transaction, actions : SendingAction
                             LineContent()
                             AmountContent(amount = amount.toDoubleOrNull()?: 0.0)
                             Spacer(modifier = Modifier.weight(1f))
-                            ValidateButton(
-                                title = stringResource(R.string.send),
-                                isEnable = !isValid) {
-                                transaction.amount = amount.toDoubleOrNull()?: 0.0
-                                showBottomSheet = true
-                            }
+
                         }
                     }
                 }
             }
         },
+        bottomBar = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(150.dp)
+                    .shadow(
+                        16.dp, RoundedCornerShape(
+                            topStart = 2.dp, topEnd = 2.dp,
+                        )
+                    )
+                    .background(
+                        Color.White,
+                        RoundedCornerShape(
+                            topStart = 16.dp, topEnd = 16.dp,
+
+                            )
+                    ),
+
+            ) {
+                ValidateButton(title = stringResource(id = R.string.send),
+                    isEnable = !isValid){
+                    transaction.amount = amount.toDoubleOrNull()?: 0.0
+                    showBottomSheet = true
+                }
+            }
+        }
     )
 
     if (showBottomSheet){

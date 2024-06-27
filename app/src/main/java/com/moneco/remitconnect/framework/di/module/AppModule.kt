@@ -26,6 +26,7 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class)
+
 class AppModule {
     /**
      * Injects the application context into the application instance.

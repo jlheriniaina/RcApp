@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import com.moneco.remitconnect.application.domaine.entites.Wallets
 import com.moneco.remitconnect.application.ui.theme.LightGray
 import com.moneco.remitconnect.application.ui.theme.PaleMint
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 @Composable
 fun WalletContentItem(item  : Wallets,
@@ -58,9 +59,10 @@ fun WalletContentItem(item  : Wallets,
             )
             Text(
                 text = item.name,
-                fontWeight = FontWeight.W500,
+                fontWeight = FontWeight.Medium,
                 fontSize = 16.sp,
                 lineHeight = 24.sp,
+                fontFamily = outfitSansFamily,
                 color = if (selected) MaterialTheme.colorScheme.primary else Color.Unspecified,
             )
         }

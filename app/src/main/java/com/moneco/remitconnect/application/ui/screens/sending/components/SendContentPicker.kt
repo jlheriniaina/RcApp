@@ -26,6 +26,7 @@ import com.moneco.remitconnect.R
 import com.moneco.remitconnect.application.domaine.entites.Transaction
 import com.moneco.remitconnect.application.ui.theme.DuskGray
 import com.moneco.remitconnect.application.ui.theme.midnightBlue
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 import com.moneco.remitconnect.helpers.formatAmountToXOF
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -48,8 +49,10 @@ fun SendContentPicker(transaction : Transaction,
             Text(
                 text = "Confirm transfer",
                 fontSize = 24.sp,
-                fontWeight = FontWeight(600),
-                color = midnightBlue
+                fontWeight = FontWeight.SemiBold,
+                fontFamily = outfitSansFamily,
+                color = Color(0xFF00122C),
+                lineHeight = 36.sp,
             )
             InfoTransactionContent(
                 title = stringResource(id = R.string.transaction_amount),
@@ -95,12 +98,15 @@ fun InfoTransactionContent(title : String, value : String) {
         Text(
             text = title,
             fontSize = 14.sp,
-            color = DuskGray
+            color = DuskGray,
+            fontWeight = FontWeight.Medium,
+            fontFamily = outfitSansFamily,
         )
         Text(
             text = value,
             fontSize = 18.sp,
-            fontWeight = FontWeight(600),
+            fontWeight = FontWeight.Medium,
+            fontFamily = outfitSansFamily,
             color = midnightBlue
         )
     }

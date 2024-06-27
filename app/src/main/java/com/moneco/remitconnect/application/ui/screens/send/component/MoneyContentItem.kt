@@ -29,6 +29,7 @@ import com.moneco.remitconnect.R
 import com.moneco.remitconnect.application.ui.screens.send.money.SendingOption
 import com.moneco.remitconnect.application.ui.theme.ColorPrimary
 import com.moneco.remitconnect.application.ui.theme.PaleMint
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 @Composable
 fun MoneyContentItem(item : SendingOption, onSelected : (SendingOption) -> Unit) {
@@ -43,9 +44,9 @@ fun MoneyContentItem(item : SendingOption, onSelected : (SendingOption) -> Unit)
        ) {
            Box(
                modifier = Modifier
-                   .size(40.dp)
+                   .size(50.dp)
                    .background(
-                       color = PaleMint,
+                       color = Color(0xFFEDF8F5),
                        shape = RoundedCornerShape(12.dp)
                    ),
                contentAlignment = Alignment.Center
@@ -65,7 +66,8 @@ fun MoneyContentItem(item : SendingOption, onSelected : (SendingOption) -> Unit)
            ) {
                Text(
                    text = item.title,
-                   fontWeight = FontWeight.W500,
+                   fontWeight = FontWeight.Medium,
+                   fontFamily = outfitSansFamily,
                    fontSize = 16.sp,
                    lineHeight = 20.8.sp
                )
@@ -75,7 +77,7 @@ fun MoneyContentItem(item : SendingOption, onSelected : (SendingOption) -> Unit)
                )
            }
        }
-       HorizontalDivider(thickness = 0.5.dp)
+
    }
 
 }

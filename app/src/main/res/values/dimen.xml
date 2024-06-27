@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SDP/SSP Dimens -->
+    <dimen name="size_text_xs">@dimen/_8ssp</dimen>
+    <dimen name="size_text_s">@dimen/_10ssp</dimen>
+    <dimen name="size_text_m">@dimen/_11ssp</dimen>
+    <dimen name="size_text_l">@dimen/_13ssp</dimen>
+    <dimen name="size_text_xl">@dimen/_15ssp</dimen>
+
+
+    <dimen name="size_xs">@dimen/_4sdp</dimen>
+    <dimen name="size_s">@dimen/_8sdp</dimen>
+    <dimen name="size_sm">@dimen/_12sdp</dimen>
+    <dimen name="size_m">@dimen/_16sdp</dimen>
+    <dimen name="size_l">@dimen/_24sdp</dimen>
+    <dimen name="size_xl">@dimen/_32sdp</dimen>
+    <dimen name="size_xxl">@dimen/_48sdp</dimen>
+    <dimen name="size_3xl">@dimen/_64sdp</dimen>
+    <!-- Grids -->
+    <dimen name="size_menu_item">@dimen/_95sdp</dimen>
+    <dimen name="size_menu_item_icon">@dimen/_40sdp</dimen>
+</resources>

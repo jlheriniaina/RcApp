@@ -31,6 +31,7 @@ import com.moneco.remitconnect.application.ui.screens.receive.component.NewRecip
 import com.moneco.remitconnect.application.ui.screens.receive.component.PreviousRecipientContent
 import com.moneco.remitconnect.application.ui.screens.receive.state.ReceiveMoneyAction
 import com.moneco.remitconnect.application.ui.screens.receive.state.ReceiveTransactionState
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 @Composable
 fun ReceiveMoneyScreen(state: ReceiveTransactionState,
@@ -52,7 +53,9 @@ fun ReceiveMoneyScreen(state: ReceiveTransactionState,
                 Text(
                     text = stringResource(R.string.who_are_you_sending_to),
                     fontSize = 24.sp,
-                    fontWeight = FontWeight(600),
+                    fontFamily = outfitSansFamily,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color(0xFF00122C),
                     lineHeight = 36.sp,
                     modifier = Modifier
                         .padding(horizontal = 24.dp)

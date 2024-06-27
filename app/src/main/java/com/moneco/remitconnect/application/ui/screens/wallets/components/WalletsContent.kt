@@ -69,7 +69,7 @@ fun WalletsContent(wallets : List<Wallets>, actions : WalletsActions) {
                 .wrapContentHeight()
                 .shadow(
                     16.dp, RoundedCornerShape(
-                        topStart = 16.dp, topEnd = 16.dp,
+                        topStart = 4.dp, topEnd = 4.dp,
                     )
                 )
                 .background(

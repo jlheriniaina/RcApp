@@ -16,7 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
@@ -42,8 +42,7 @@ import com.moneco.remitconnect.application.domaine.entites.Transaction
 import com.moneco.remitconnect.application.ui.components.SearchBar
 import com.moneco.remitconnect.application.ui.screens.receive.state.ReceiveMoneyAction
 import com.moneco.remitconnect.application.ui.screens.receive.state.ReceiveTransactionState
-import com.moneco.remitconnect.application.ui.theme.BabyBlue
-import com.moneco.remitconnect.application.ui.theme.LightGray
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 @Composable
 fun PreviousRecipientContent(state : ReceiveTransactionState,
@@ -52,7 +51,7 @@ fun PreviousRecipientContent(state : ReceiveTransactionState,
 
     Column(
         modifier = Modifier
-            .padding(24.dp)
+
             .fillMaxWidth()
             .wrapContentHeight()
     ) {
@@ -62,8 +61,10 @@ fun PreviousRecipientContent(state : ReceiveTransactionState,
         }
         Spacer(modifier = Modifier.height(24.dp))
         Text(
+            modifier =  Modifier.padding(horizontal = 24.dp),
             text = stringResource(R.string.contacts_on_your_phone),
             fontSize = 14.sp,
+            fontFamily = outfitSansFamily,
             fontWeight = FontWeight.Bold,
             lineHeight = 21.sp,
         )
@@ -82,10 +83,11 @@ fun PreviousRecipientContent(state : ReceiveTransactionState,
                     }
                 }
                 is ReceiveTransactionState.Success -> {
-                    items(state.items) { item ->
-                        RecipientContentItem(item = item){
+                    itemsIndexed(state.items) { index,item ->
+                        RecipientContentItem(item = item, index = index){
                             actions.onSelectedItem(it)
                         }
+                        HorizontalDivider(thickness = 1.dp)
                     }
                 }
                 is ReceiveTransactionState.Empty -> {
@@ -122,8 +124,9 @@ fun PreviousRecipientContent(state : ReceiveTransactionState,
 }
 
 @Composable
-fun RecipientContentItem(item : Transaction,
+fun RecipientContentItem(item : Transaction, index: Int,
                          onItemClick: (Transaction) -> Unit){
+
     Column(Modifier.fillMaxWidth()){
         Row(
             modifier = Modifier
@@ -132,6 +135,7 @@ fun RecipientContentItem(item : Transaction,
                 }
                 .height(77.dp)
                 .fillMaxWidth()
+                .padding(horizontal = 24.dp)
                 .background(Color.White),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
@@ -141,23 +145,25 @@ fun RecipientContentItem(item : Transaction,
                     .size(40.dp)
                     .fillMaxWidth()
                     .background(
-                        color = BabyBlue,
+                        color = Color.White,
                         shape = RoundedCornerShape(12.dp)
                     ),
-                painter = painterResource(id = R.drawable.ic_coin),
+                painter = painterResource(id = getImage(index)),
                 contentDescription = "",
             )
             Spacer(modifier = Modifier.width(8.dp))
             Column(Modifier.weight(1f)) {
                 Text(
                     text = "${item.firstName} ${item.lastName}",
-                    fontWeight = FontWeight.W500,
+                    fontWeight = FontWeight.SemiBold,
+                    fontFamily = outfitSansFamily,
                     fontSize = 16.sp,
                     lineHeight = 24.sp
                 )
                 Text(
                     text = "${item.country} ${item.phoneNumber}",
-                    fontWeight = FontWeight.W400,
+                    fontWeight = FontWeight.Medium,
+                    fontFamily = outfitSansFamily,
                     fontSize = 14.sp,
                     lineHeight = 21.sp
                 )
@@ -167,9 +173,19 @@ fun RecipientContentItem(item : Transaction,
                 contentDescription = "",
             )
         }
-        HorizontalDivider(
-            thickness = 1.dp,
-            color = LightGray
-        )
+    }
+}
+
+fun getImage(index : Int) : Int{
+    return when(index){
+        1  -> R.drawable.img1
+        2 -> R.drawable.img2
+        3 -> R.drawable.img3
+        4 -> R.drawable.img4
+        5 -> R.drawable.img5
+        6 -> R.drawable.img6
+        7 -> R.drawable.img7
+        8 -> R.drawable.img8
+        else -> R.drawable.img1
     }
 }

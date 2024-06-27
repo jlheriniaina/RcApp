@@ -27,6 +27,7 @@ import com.moneco.remitconnect.application.ui.theme.ColorPrimary
 import com.moneco.remitconnect.application.ui.theme.LightGray
 import com.moneco.remitconnect.application.ui.theme.MintGreen
 import com.moneco.remitconnect.application.ui.theme.PaleMint
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 @Composable
 fun ValidateButton(title : String, isEnable : Boolean, onPressedCallback: () -> Unit) {
@@ -46,6 +47,8 @@ fun ValidateButton(title : String, isEnable : Boolean, onPressedCallback: () -> 
             modifier = Modifier.align(Alignment.CenterVertically),
             text = title,
             color = Color.White,
+            fontWeight = FontWeight.Medium,
+            fontFamily = outfitSansFamily,
             style = MaterialTheme.typography.bodyMedium,
             fontSize = 14.sp
         )

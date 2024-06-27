@@ -26,7 +26,8 @@ import com.moneco.remitconnect.R
 @Composable
 fun TopBarTrailingButton(onClick: () -> Unit) {
     TopAppBar(
-        title = {
+        title = {},
+        actions = {
             Row(
                 modifier = Modifier.fillMaxWidth()
                     .padding(horizontal = 16.dp),
@@ -38,7 +39,7 @@ fun TopBarTrailingButton(onClick: () -> Unit) {
                         .clickable { onClick() }
                         .size(40.dp)
                         .background(
-                            color = Color.LightGray,
+                            color = Color(0xFFF2F3F4),
                             shape = RoundedCornerShape(12.dp)
                         ),
                     contentAlignment = Alignment.Center

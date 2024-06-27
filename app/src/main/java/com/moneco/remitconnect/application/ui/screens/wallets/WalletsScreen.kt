@@ -21,6 +21,7 @@ import com.moneco.remitconnect.application.ui.components.TopBarLeadingButton
 import com.moneco.remitconnect.application.ui.screens.wallets.components.WalletsContent
 import com.moneco.remitconnect.application.ui.screens.wallets.state.WalletState
 import com.moneco.remitconnect.application.ui.screens.wallets.state.WalletsActions
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 @Composable
 fun WalletsScreen(state : WalletState, actions : WalletsActions) {
@@ -39,7 +40,9 @@ fun WalletsScreen(state : WalletState, actions : WalletsActions) {
                 Text(
                     text = stringResource(R.string.choose_a_mobile_wallet),
                     fontSize = 24.sp,
-                    fontWeight = FontWeight(600),
+                    fontWeight = FontWeight.SemiBold,
+                    fontFamily = outfitSansFamily,
+                    color = Color(0xFF00122C),
                     lineHeight = 36.sp,
                     modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp)
                 )

@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -37,6 +38,7 @@ import com.moneco.remitconnect.application.ui.screens.home.state.TransactionStat
 import com.moneco.remitconnect.application.ui.theme.BabyBlue
 import com.moneco.remitconnect.application.ui.theme.CeruleanBlue
 import com.moneco.remitconnect.application.ui.theme.midnightBlue
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 import com.moneco.remitconnect.helpers.currency
 
 @Composable
@@ -56,7 +58,7 @@ fun TransactionContent(state : TransactionState) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .clip(RoundedCornerShape(16.dp))
+                .shadow(4.dp, RoundedCornerShape(16.dp))
                 .background(Color.White),
             contentAlignment = Alignment.Center
         ){
@@ -71,13 +73,15 @@ fun TransactionContent(state : TransactionState) {
                     EmptyTransaction(message = state.message)
                 }
                 is TransactionState.Success -> {
-                    LazyColumn(modifier = Modifier.height((100 * state.items.count()).dp)){
+                    LazyColumn(modifier = Modifier
+                        .height((100 * state.items.count()).dp)
+                        .padding(vertical = 16.dp)){
                         items(state.items){
                             TransactionItemCard(
                                 transaction = it
                             )
                             HorizontalDivider(
-                                thickness = (0.5).dp,
+                                thickness = 1.dp,
                                 color = Color.LightGray
                             )
                         }
@@ -124,9 +128,13 @@ fun TransactionItemCard(transaction: Transaction){
         ) {
             Text(stringResource(R.string.sent_to),
                 fontWeight = FontWeight.Thin,
-                fontSize = 14.sp)
+                fontFamily = outfitSansFamily,
+                fontSize = 12.sp)
+
             Text("${transaction.firstName} ${transaction.lastName}",
                  fontWeight = FontWeight.Medium,
+                fontFamily = outfitSansFamily,
+                fontSize = 16.sp
                 )
             Spacer(
                 modifier = Modifier.height(8.dp)

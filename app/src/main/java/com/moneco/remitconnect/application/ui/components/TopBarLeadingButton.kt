@@ -27,10 +27,11 @@ import com.moneco.remitconnect.R
 @Composable
 fun TopBarLeadingButton(onClick: () -> Unit) {
     TopAppBar(
-        title = {
+        title = {},
+        navigationIcon = {
             Row(
                 modifier = Modifier.fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(8.dp),
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -38,9 +39,8 @@ fun TopBarLeadingButton(onClick: () -> Unit) {
                     modifier = Modifier
                         .clickable { onClick() }
                         .size(40.dp)
-
                         .background(
-                            color = Color.LightGray,
+                            color = Color(0xFFF2F3F4),
                             shape = RoundedCornerShape(12.dp)
                         ),
                     contentAlignment = Alignment.Center

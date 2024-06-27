@@ -1,9 +1,10 @@
 package com.moneco.remitconnect.application.domaine.repositories.transaction
 
 import com.moneco.remitconnect.application.domaine.entites.Transaction
+import kotlinx.coroutines.flow.Flow
 
 interface TransactionRepository {
-    suspend fun findByUser(id : Long) : List<Transaction>
+    fun findByUser(id : Long) : Flow<List<Transaction>>
 
     suspend fun save(transaction: Transaction) : Boolean
 

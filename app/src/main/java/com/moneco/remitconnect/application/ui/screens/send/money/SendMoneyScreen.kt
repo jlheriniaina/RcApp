@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,6 +23,7 @@ import com.moneco.remitconnect.R
 import com.moneco.remitconnect.application.ui.screens.send.component.MoneyContentItem
 import com.moneco.remitconnect.application.ui.screens.send.component.TopBarTrailingButton
 import com.moneco.remitconnect.application.ui.screens.send.state.MoneyActions
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 
 @Composable
@@ -43,18 +45,22 @@ fun SendMoneyScreen(data : List<SendingOption>, action : MoneyActions){
                     Text(
                         text = stringResource(R.string.send_money),
                         fontSize = 24.sp,
-                        fontWeight = FontWeight(600),
-                        lineHeight = 36.sp,
+                        fontFamily = outfitSansFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color(0xFF00122C),
                         modifier = Modifier.padding(start = 24.dp)
                     )
+
                     Spacer(modifier = Modifier.height(24.dp))
+                    HorizontalDivider(thickness = 0.7.dp)
                     LazyColumn(
-                        Modifier.padding(16.dp)
+                        Modifier.padding( vertical = 16.dp)
                     ){
                         items(data) { item ->
                             MoneyContentItem(item = item) {
                                 action.onSelectedItem(item)
                             }
+                            HorizontalDivider(thickness = 0.7.dp)
                         }
                     }
                 }

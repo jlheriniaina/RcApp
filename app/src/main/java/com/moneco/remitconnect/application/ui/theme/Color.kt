@@ -2,8 +2,8 @@ package com.moneco.remitconnect.application.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val ColorPrimary = Color(0xFF08A075)
-val ColorPrimaryDark = Color(0xFF007554)
+val ColorPrimary = Color(0xFF00A85A)
+val ColorPrimaryDark = Color(0xFF055C00)
 val Primary40 = Color(0xFFEDF8F5)
 val Primary50 = Color(0xFFF8FCFB)
 val Gray100 = Color(0xFFFFFFFF)

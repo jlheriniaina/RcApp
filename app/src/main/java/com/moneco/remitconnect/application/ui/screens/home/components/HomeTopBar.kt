@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.moneco.remitconnect.R
 import com.moneco.remitconnect.application.ui.theme.LightGray
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,9 +41,10 @@ fun HomeTopBar(tile: String) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Hello, $tile",
+                    text = "Hey, $tile",
                     fontSize = 24.sp,
-                    fontWeight = FontWeight.W600,
+                    fontFamily = outfitSansFamily,
+                    fontWeight = FontWeight.Bold,
                     color = Color(0xFF00122C)
                 )
                 Box(
@@ -50,7 +52,7 @@ fun HomeTopBar(tile: String) {
                         .clickable { }
                         .size(40.dp)
                         .background(
-                            color = LightGray,
+                            color = Color(0xFFF2F3F4),
                             shape = RoundedCornerShape(12.dp)
                         ),
                     contentAlignment = Alignment.Center

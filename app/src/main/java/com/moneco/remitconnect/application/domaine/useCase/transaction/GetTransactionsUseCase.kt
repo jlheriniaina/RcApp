@@ -12,9 +12,6 @@ class GetTransactionsUseCase
 @Inject
 constructor(private val transactionRepository: TransactionRepository) : BaseUseCase<Long, Flow<List<Transaction>>>{
     override suspend fun execute(input: Long): Flow<List<Transaction>> {
-       return flow {
-              val transactions = transactionRepository.findByUser(input)
-              emit(transactions)
-       }
+       return transactionRepository.findByUser(input)
     }
 }

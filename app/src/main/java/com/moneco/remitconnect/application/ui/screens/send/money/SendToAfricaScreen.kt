@@ -22,6 +22,7 @@ import com.moneco.remitconnect.R
 import com.moneco.remitconnect.application.ui.screens.send.component.MoneyContentItem
 import com.moneco.remitconnect.application.ui.components.TopBarLeadingButton
 import com.moneco.remitconnect.application.ui.screens.send.state.MoneyActions
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 
 
 @Composable
@@ -42,20 +43,23 @@ fun SendToAfricaScreen(data : List<SendingOption>, action: MoneyActions) {
                     Text(
                         text = stringResource(R.string.send_to_africa),
                         fontSize = 24.sp,
-                        fontWeight = FontWeight(600),
+                        fontFamily = outfitSansFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color(0xFF00122C),
                         lineHeight = 36.sp,
                         modifier = Modifier.padding(start = 24.dp, top = 24.dp)
                     )
-                    HorizontalDivider(thickness = 0.5.dp,
-                        modifier = Modifier.padding(top = 16.dp))
+
                     Spacer(modifier = Modifier.height(24.dp))
+                    HorizontalDivider(thickness = 0.7.dp)
                     LazyColumn(
-                        Modifier.padding(16.dp)
+                        Modifier.padding(vertical = 16.dp)
                     ){
                         items(data) { item ->
                             MoneyContentItem(item = item) {
                                 action.onSelectedItem(item)
                             }
+                            HorizontalDivider(thickness = 0.7.dp)
                         }
                     }
                 }

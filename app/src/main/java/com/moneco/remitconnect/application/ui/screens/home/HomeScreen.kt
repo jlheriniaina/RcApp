@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.moneco.remitconnect.application.domaine.entites.User
 import com.moneco.remitconnect.application.ui.components.ChildLayout
@@ -23,6 +24,7 @@ import com.moneco.remitconnect.application.ui.screens.home.components.HomeTopBar
 import com.moneco.remitconnect.application.ui.screens.home.components.TransactionContent
 import com.moneco.remitconnect.application.ui.screens.home.state.HomeActions
 import com.moneco.remitconnect.application.ui.screens.home.state.TransactionState
+import com.moneco.remitconnect.helpers.Dimensions
 
 /**
  * HomeScreen composable function renders the home screen of the application.
@@ -41,19 +43,19 @@ fun HomeScreen(user: User?, state: TransactionState, action : HomeActions) {
             Box(
                 modifier = Modifier
                     .padding(padding)
-                    .background(MaterialTheme.colorScheme.secondary)
+                    .background(Color(0xFFF8FCFB))
             ) {
                 VerticalScrollLayout(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(start = 24.dp, end = 24.dp),
+                        .padding(horizontal = Dimensions.size_m()),
                     ChildLayout(
                         contentType = "Header",
                         content = {
                             Column(Modifier.fillMaxWidth()){
                                 BalanceContent(balance = user?.balance ?: 0.0)
                                 Spacer(
-                                    modifier = Modifier.height(24.dp)
+                                    modifier = Modifier.height(Dimensions.size_m())
                                 )
                             }
                         }),
@@ -61,10 +63,11 @@ fun HomeScreen(user: User?, state: TransactionState, action : HomeActions) {
                         contentType = "Action",
                         content = {
                             Column(Modifier.fillMaxWidth()){
-                                HomeActionContent()
                                 Spacer(
-                                    modifier = Modifier.height(24.dp)
+                                    modifier = Modifier.height(Dimensions.size_m())
                                 )
+                                HomeActionContent()
+
                             }
                         }),
                     ChildLayout(

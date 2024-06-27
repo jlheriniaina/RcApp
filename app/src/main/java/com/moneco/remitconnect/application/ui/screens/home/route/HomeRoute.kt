@@ -23,10 +23,6 @@ fun HomeRoute(viewModel: HomeViewModel = hiltViewModel()) {
     val transactionState by viewModel.transactionState.collectAsState()
     // Create and remember the user actions for the HomeScreen
     val actions = rememberUserActions(viewModel)
-    // Launch a side-effect to fetch data when the composable is first launched
-    LaunchedEffect(key1 = true){
-        viewModel.fetchData()
-    }
     // Render the HomeScreen with the collected user data, transaction state, and actions
     HomeScreen(user, transactionState, actions)
 }

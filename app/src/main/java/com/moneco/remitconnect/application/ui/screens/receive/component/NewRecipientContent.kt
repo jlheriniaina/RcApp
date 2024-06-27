@@ -44,6 +44,7 @@ import com.moneco.remitconnect.application.ui.components.CustomStyleOutlinedText
 import com.moneco.remitconnect.application.ui.components.ValidateButton
 import com.moneco.remitconnect.application.ui.theme.DuskGray
 import com.moneco.remitconnect.application.ui.theme.midnightBlue
+import com.moneco.remitconnect.application.ui.theme.outfitSansFamily
 import com.moneco.remitconnect.helpers.toast
 
 @Composable
@@ -102,9 +103,10 @@ fun NewRecipientContent(countries : List<Country>, contacts : Map<String, List<C
             Text(
                 text = stringResource(R.string.phone_number),
                 fontSize = 16.sp,
-                fontWeight = FontWeight(400),
                 lineHeight = 24.sp,
-                color = midnightBlue
+                color = midnightBlue,
+                fontFamily = outfitSansFamily,
+                fontWeight = FontWeight.Medium
             )
             Spacer(modifier = Modifier.height(8.dp))
             CustomStyleOutlinedTextField(
@@ -119,7 +121,8 @@ fun NewRecipientContent(countries : List<Country>, contacts : Map<String, List<C
             Text(
                 text = stringResource(R.string.first_name),
                 fontSize = 16.sp,
-                fontWeight = FontWeight(400),
+                fontFamily = outfitSansFamily,
+                fontWeight = FontWeight.Medium,
                 lineHeight = 24.sp,
                 color = midnightBlue
             )
@@ -137,7 +140,8 @@ fun NewRecipientContent(countries : List<Country>, contacts : Map<String, List<C
             Text(
                 text = stringResource(R.string.last_name),
                 fontSize = 16.sp,
-                fontWeight = FontWeight(400),
+                fontFamily = outfitSansFamily,
+                fontWeight = FontWeight.Medium,
                 lineHeight = 24.sp,
                 color = midnightBlue
             )
